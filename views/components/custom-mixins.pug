@@ -1,0 +1,164 @@
+// Create titles
+mixin create-title( title, subTitle, btnClass, btnAction, btnName, btnIcon )
+    div.title-block
+        if btnAction != Null || btnName != Null
+            div&attributes({'class': 'title-block-with-btn'})
+                div&attributes({'class': 'title-block-content'})
+                    h1 #{title}
+                    if subTitle != Null
+                        h4 #{subTitle}
+                if btnAction != Null
+                    a(href="#"+ btnAction +"" class=""+ btnClass +"" data-form-btn='openForm')
+                        if btnIcon != Null
+                            i&attributes({'class': btnIcon})
+                        span #{btnName}
+                else
+                    a&attributes({'class': btnClass})
+                        if btnIcon != Null
+                            i&attributes({'class': btnIcon})
+                        span #{btnName}
+        else
+            div&attributes({'class': 'title-block-simple'})
+                div&attributes({'class': 'title-block-content'})
+                    h1 #{title}
+                    if subTitle != Null
+                        h4 #{subTitle}
+
+
+// Create simple btn
+mixin create-simple-btn
+    a&attributes({'href': '#' + attributes.btnAction, 'class': attributes.btnClass, 'data-action': attributes.btnAction})
+        span #{attributes.btnText}
+        if attributes.btnIcon != Null
+            i&attributes({'class': attributes.btnIcon})
+
+
+// Create contact btn
+mixin create-contact-btn
+    a&attributes({'href': '' + attributes.btnHref, 'class': attributes.btnClass, 'data-action': attributes.btnAction})
+        i&attributes({'class': attributes.btnIconClass +' '+ attributes.btnIconColor +' '+ attributes.btnIcon})
+        span #{attributes.btnText}
+
+
+// Create circle ico
+mixin create-circle-ico
+    i&attributes({'class': attributes.iconClass + ' ' + attributes.iconColor + ' circle-ico ' + attributes.iconName})
+
+
+// Create contact btn 2
+mixin create-contact-btn-2
+    a&attributes({'href': '' + attributes.btnHref, 'class': attributes.btnClass, 'data-action': attributes.btnAction})
+        div&attributes({'class': attributes.btnIconClass + ' ' + attributes.btnIconColor})
+            .btn-img-content
+                img(src='/img/' + attributes.btnIcon)
+        span #{attributes.btnText}
+
+
+// Create guaranties block
+mixin create-guarantie( title, description, iconSrc, iconClass )
+    .item.guarantie
+        .item-head
+            div&attributes({'class': 'item-ico ' + iconClass})
+                .item-ico-content
+                    img(src='/img/' + iconSrc)
+            .item-title
+                h3 #{title}
+        .item-body
+            p #{description}
+
+
+// Create advantage block
+mixin create-advantage
+    .item.advantage
+        .item-head
+            div&attributes({'class': 'item-ico ' + attributes.iconClass})
+                .item-ico-content
+                    img(src='/img/' + attributes.iconSrc)
+            .item-title
+                h3 #{attributes.title}
+        .item-body
+            ul
+                each listItem in attributes.list
+                    li #{listItem}
+
+
+// Create review block
+mixin create-customer
+    .item.customer
+        .item-head
+            div&attributes({'class': 'item-img'})
+                .item-img-content
+                    img(src='/img/' + attributes.photo)
+            .item-title
+                h3 #{attributes.name}
+                p #{attributes.position}
+                p #{attributes.companyDescr}
+                    a&attributes({'href': '#' + attributes.companyLink, 'title': attributes.companyDescr +' '+ attributes.companyName })
+                        span #{' "' + attributes.companyName + '"'}
+        .item-body
+            p #{attributes.review}
+
+// Create how-it-works block
+mixin create-hiw
+    .item.how-it-works
+        .item-head
+            div&attributes({'class': 'item-ico ' + attributes.iconClass})
+                .flow-number
+                    span #{attributes.number}
+                .item-ico-content
+                    img(src='/img/' + attributes.iconSrc)
+        .item-body
+            .item-title
+                h3 #{attributes.title}
+
+
+// Create how-it-works button
+mixin create-hiw-button
+    if attributes.btnAction != Null
+        //a&attributes({'href': '#' + attributes.btnAction, 'class': attributes.btnClass, 'data-action': attributes.btnAction})
+        a(href="#"+ attributes.btnAction +"" class=""+ attributes.btnClass +"" data-form-btn='openForm')
+            if attributes.btnIcon != Null
+                i&attributes({'class': attributes.btnIcon})
+            span #{attributes.btnName}
+    else
+        a&attributes({'class': attributes.btnClass})
+            if attributes.btnIcon != Null
+                i&attributes({'class': attributes.btnIcon})
+            span #{attributes.btnName}
+
+// Create list from array
+mixin list
+    if Array.isArray(attributes.entries) && attributes.entries.length > 0
+        ul
+            each entrie in attributes.entries
+                li #{entrie}
+    else
+        p Not a list!
+
+// Create main navigation links
+mixin create-nav-link( linkAction, linkTitle )
+    li
+        a&attributes({ 'href': '#' + linkAction, 'data-action': linkAction})
+            span #{linkTitle}
+
+mixin create-footer-column
+    .column-head
+        span #{attributes.headName}
+    ul.column-body
+        li
+            a&attributes({ 'href': '#' + attributes.lineOne })
+                span #{attributes.lineOne}
+        li
+            a&attributes({ 'href': '#' + attributes.lineTwo })
+                span #{attributes.lineTwo}
+        if attributes.lineThree != Null
+            li
+                a&attributes({ 'href': '#' + attributes.lineThree })
+                    span #{attributes.lineThree}
+
+mixin create-foolow-button
+    li
+        a&attributes({ 'href': '#' + attributes.logoBrand})
+            i&attributes({ 'class': 'fa fa-' + attributes.logoBrand})
+
+
