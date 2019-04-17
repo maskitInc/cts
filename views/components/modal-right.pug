@@ -1,11 +1,11 @@
 .overall-panel.overall-modal-right
 	.overall-panel-container
-		.overall-panel-header.bluegreen
+		.overall-panel-header.green
 			.overall-panel-header-container
 				.overall-panel-header-title
 					.overall-panel-header-title-content
 						i.fa.fa-credit-card-alt
-						span Payment 1
+						span Payment steps
 				.overall-panel-header-actions
 					.overall-panel-header-actions-list
 						ul
@@ -16,18 +16,10 @@
 		.overall-panel-content
 			.overall-panel-content-modal-right-form
 				.overall-panel-content-modal-right-form-container
-					.total-price
-						h3 Your order
-						.total-price-container.green
-							h2.green
-								| Buy
-								b 100 tokens
-								br
-								| for
-								b 10.00 USD
-
 					.cards
-						h3 Choose your preferred payment method:
+						h3 
+							span 1
+							| Choose your preferred payment method:
 						ul.card-list
 							li.card-item.active
 								a(href="#")
@@ -35,3 +27,16 @@
 							li.card-item
 								a(href="#")
 									img(src="https://www.verotel.com/images.v2/logo.png")
+					.total-price
+						h3 
+							span 2
+							| Click to 
+							b Confirm
+							|  your order
+						.total-price-container.pink
+							a(href="/")
+								| Buy
+								b 100 tokens
+								br
+								| for
+								b 10.00 USD

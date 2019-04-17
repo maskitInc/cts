@@ -1,17 +1,63 @@
 .card {
     &s {
         padding: 12px;
+        margin-bottom: 36px;
+
+        .overall-modal-right & {
+            margin-bottom: 48px;
+        }
+        .overall-modal-overall & {
+            margin-top: 6px;
+            margin-bottom: 24px;
+        }
+
+        &-title {
+            h3 {
+                margin: 36px 0 22px 0;
+                font-weight: 500;
+                line-height: 1.45;
+                padding: 0 0 12px 0;
+                border-bottom: 1px solid #e3e8e6;
+                color: #45544e;
+                // color: #394756;
+                font-size: 18px;
+            }
+        }
+
 
         h3 {
-            margin: 36px 0 22px 0;
+            margin: 0 0 22px 0;
             font-weight: 500;
             line-height: 1.45;
             padding: 0 0 12px 0;
             border-bottom: 1px solid #e3e8e6;
             color: #45544e;
-            // color: #394756;
             font-size: 18px;
+            letter-spacing: .5px;
+            position: relative;
+            text-indent: 28px;
+
+            span {
+                border-radius: 100%;
+                background: #1ddd90;
+                /* background: #048ba8; */
+                /* background: #ff64a7; */
+                width: 22px;
+                position: absolute;
+                /* display: inline-block; */
+                line-height: 1;
+                height: 21px;
+                text-indent: 0;
+                text-align: center;
+                color: #fff;
+                box-sizing: border-box;
+                padding-top: 4px;
+                font-size: 14px;
+                left: 0;
+                top: 2px;
+            }
         }
+
 
         .overall-modal-bottom & {
 
