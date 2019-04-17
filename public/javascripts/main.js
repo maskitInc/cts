@@ -1,4 +1,19 @@
 var camToSee = {
+    checkedCard: function() {
+        var cardList = $('.card-list'),
+            cardListItem = cardList.find('li');
+
+        cardListItem.on('click', function(e) {
+            var el = $(this);
+
+            el.parents('.card-list').find('li').removeClass('active');
+            el.addClass('active');
+
+            e.preventDefault();
+            e.stopPropagation();
+
+        });
+    },
     appColorScheme: function() {
         var colorThemes = $('.color-themes-links'),
             colorThemeItem = colorThemes.find('li');
@@ -82,6 +97,7 @@ var camToSee = {
 
     },
     init: function() {
+        this.checkedCard();
         this.appColorScheme();
         this.overallPanels();
     }
@@ -103,8 +119,3 @@ document.onreadystatechange = function() {
 
     }
 };
-
-
-$(window).on('resize', function(e) {
-
-});
