@@ -17,3 +17,15 @@ On Windows, use this command:
 ```
 set DEBUG=camtosee:* & npm start
 ```
+
+## Build
+
+For build project into `html, css(minified), js(minified)` form `pug, scss, js`:
+```
+gulp build
+```
+
+For work with builded files:
+```
+gulp
+```
