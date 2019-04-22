@@ -14,36 +14,6 @@ var camToSee = {
 
         });
     },
-    appColorScheme: function() {
-        var colorThemes = $('.color-themes-links'),
-            colorThemeItem = colorThemes.find('li');
-
-        colorThemeItem.on('click', function(e) {
-            var el = $(this);
-
-            colorThemeItem.removeClass('active');
-            el.addClass('active');
-
-            $("body").removeClass(function(index, css) {
-                return (css.match(/(^|\s)main-theme-\S+/g) || []).join(' ');
-            });
-
-            if (el.hasClass('color-theme-light')) {
-                $("body").addClass('main-theme-light');
-                $("html").removeClass('overall-showed');
-                $(".overall-panel.overall-main-nav").removeClass('showed');
-            }
-            if (el.hasClass('color-theme-dark')) {
-                $("body").addClass('main-theme-dark');
-                $("html").removeClass('overall-showed');
-                $(".overall-panel.overall-main-nav").removeClass('showed');
-            }
-
-            e.preventDefault();
-            e.stopPropagation();
-
-        });
-    },
     overallPanels: function() {
 
         var showPanelBtn = $('.show-overall-panel'),
@@ -98,7 +68,6 @@ var camToSee = {
     },
     init: function() {
         this.checkedCard();
-        this.appColorScheme();
         this.overallPanels();
     }
 };
