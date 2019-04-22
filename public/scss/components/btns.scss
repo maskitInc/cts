@@ -16,6 +16,7 @@
         h3 {}
 
         ul {
+        	padding: 0;
             list-style-type: none;
 
             li {
@@ -35,6 +36,9 @@
                     font-family: 'Roboto', sans-serif;
                     font-weight: bold;
                     line-height: 1;
+                }
+                &:last-child {
+                	margin-right: 0;
                 }
             }
         }
